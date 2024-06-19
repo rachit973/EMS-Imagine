@@ -36,7 +36,7 @@ app.use(cors({
 }));
 
 app.get("/", (req,res) => {
-    res.status(200).send("Homepage.jsx");
+    res.status(200).send("./HomePage.jsx");
 });
 
 app.get("/admins", async (req, res) => {
