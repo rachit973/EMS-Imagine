@@ -30,7 +30,7 @@ app.use(json());
 app.use(urlencoded({ extended: true }));
 
 app.use(cors({
-    origin: 'https://ems-imagine-frontend.vercel.app/', // Allow only your frontend URL
+    origin: 'https://ems-imagine-frontend.vercel.app', // Allow only your frontend URL
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
     credentials: true, // Allow credentials (cookies, authorization headers, etc.)
 }));
