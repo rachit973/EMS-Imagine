@@ -35,6 +35,10 @@ app.use(cors({
     credentials: true, // Allow credentials (cookies, authorization headers, etc.)
 }));
 
+app.get("/", (req,res) => {
+    res.json("Hello");
+});
+
 app.get("/admins", async (req, res) => {
     try {
         const data = await collectiona.find({}, 'uid password').lean();
