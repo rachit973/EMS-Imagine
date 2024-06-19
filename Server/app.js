@@ -35,8 +35,8 @@ app.use(cors({
     credentials: true, // Allow credentials (cookies, authorization headers, etc.)
 }));
 
-app.get("/", (req,res) => {
-    res.status(200).send("./HomePage.jsx");
+app.get("/homepage", (req,res) => {
+    res.status(200).json(err);
 });
 
 app.get("/admins", async (req, res) => {
