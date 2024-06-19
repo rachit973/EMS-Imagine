@@ -1,7 +1,20 @@
 import React from "react";
 import "../styles/HomePage.css";
+import axios from 'axios'
 
 function HomePage() {
+
+
+axios.default.withCredentials = true;
+  const handleLogin = (e) => {
+    e.preventDefault();
+    axios.post('https://ems-imagine-server.vercel.app/login')
+    .then(result => console.log(result))
+    .catch (err => console.log(err))
+  }
+
+
+  
   return (
     <div>
       <div id="header">
