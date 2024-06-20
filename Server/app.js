@@ -35,9 +35,15 @@ app.use(cors({
     credentials: true, // Allow credentials (cookies, authorization headers, etc.)
 }));
 
-app.get("/homepage", (req,res) => {
-    res.status(200).json(err);
+app.get("/login", (req,res) => {
+    res.status(200).json({message: "Login Page"});
 });
+
+app.post("/login", (req, res) => {
+    const { role } = req.body;
+    res.status(200).json({ message: "Logged in as ${role}" });
+});
+
 
 app.get("/admins", async (req, res) => {
     try {
