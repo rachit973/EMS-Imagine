@@ -48,8 +48,6 @@
 
 // export default Login;
 
-
-
 import React, { useState } from "react";
 import axios from "axios";
 import "../styles/Login.css";
@@ -63,7 +61,7 @@ const Login = () => {
       // Handle the response as needed
       console.log("Login successful:", response.data);
       // Redirect to the appropriate login form
-      window.location.href = `loginform${role.charAt(0)}`;
+      window.location.href = `/loginform${role.charAt(0)}`;
     } catch (error) {
       console.error("Error logging in:", error);
       // Handle error as needed
@@ -119,3 +117,4 @@ const Login = () => {
 };
 
 export default Login;
+
