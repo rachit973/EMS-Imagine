@@ -48,23 +48,21 @@
 
 // export default Login;
 
-import React, { useState } from "react";
+import React from "react";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import "../styles/Login.css";
 
 const Login = () => {
-  const [role, setRole] = useState("");
+  const navigate = useNavigate();
 
   const handleLogin = async (role) => {
     try {
       const response = await axios.post("https://ems-imagine.onrender.com/login", { role });
-      // Handle the response as needed
       console.log("Login successful:", response.data);
-      // Redirect to the appropriate login form
-      window.location.href = `/loginform${role.charAt(0)}`;
+      navigate(`/loginform${role.charAt(0).toUpperCase()}`);
     } catch (error) {
       console.error("Error logging in:", error);
-      // Handle error as needed
     }
   };
 
@@ -117,4 +115,6 @@ const Login = () => {
 };
 
 export default Login;
+
+
 
