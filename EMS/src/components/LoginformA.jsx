@@ -17,7 +17,7 @@ function LoginformA() {
   useEffect(() => {
     const fetchAllAdmin = async () => {
       try {
-        const res = await axios.get("https://ems-imagine-backend.vercel.app/admins");
+        const res = await axios.get("https://ems-imagine.onrender.com/");
         setLoginData(res.data);
         console.log(res);
       } catch (err) {
