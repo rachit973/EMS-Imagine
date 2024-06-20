@@ -1,5 +1,6 @@
 import React from "react";
 import "../styles/HomePage.css";
+import { Link } from "react-router-dom";
 
 
 function HomePage() {
@@ -24,7 +25,7 @@ function HomePage() {
       </div>
       <div id="bgimg">
         <div id="login">
-          <a href="/login" className="login-button">LOGIN</a>
+          <Link to="/login" className="login-button">LOGIN</Link>
         </div>
       </div>
 
