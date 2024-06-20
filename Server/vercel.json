@@ -6,12 +6,5 @@
             "src": "/(.*)",
             "dest": "/"
         }
-
-        {
-            "src": "/homepage",
-            "dest": "/login"
-        
-        
-        }
     ]
 }
