@@ -42,7 +42,7 @@ const TaskA = () => {
         status: "Pending",
       };
 
-      await axios.post("http://localhost:8001/tasks", { tasks: [task] });
+      await axios.post("https://ems-imagine.onrender.com/tasks", { tasks: [task] });
       alert("Task assigned successfully!");
       setTaskDetails({ task: "", deadline: "" });
       fetchPendingTasks(); // Fetch and update pending tasks immediately after assigning
@@ -54,7 +54,7 @@ const TaskA = () => {
 
   const fetchPendingTasks = async () => {
     try {
-      const response = await axios.get("http://localhost:8001/tasks?status=Pending");
+      const response = await axios.get("https://ems-imagine.onrender.com/tasks?status=Pending");
       setPendingTasks(response.data);
       setShowPending(true);
       setShowCompleted(false);
@@ -65,7 +65,7 @@ const TaskA = () => {
 
   const fetchCompletedTasks = async () => {
     try {
-      const response = await axios.get("http://localhost:8001/tasks?status=Done");
+      const response = await axios.get("https://ems-imagine.onrender.com/tasks?status=Done");
       setCompletedTasks(response.data);
       setShowPending(false);
       setShowCompleted(true);
@@ -78,7 +78,7 @@ const TaskA = () => {
     const confirmDelete = window.confirm("Are you sure you want to delete this task?");
     if (confirmDelete) {
     try {
-      await axios.delete(`http://localhost:8001/tasks/${taskId}`);
+      await axios.delete(`https://ems-imagine.onrender.com/tasks/${taskId}`);
       setPendingTasks((prevTasks) => prevTasks.filter(task => task._id !== taskId));
       setCompletedTasks((prevTasks) => prevTasks.filter(task => task._id !== taskId));
     } catch (error) {
