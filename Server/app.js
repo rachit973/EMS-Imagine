@@ -45,7 +45,7 @@ app.post("/login", (req, res) => {
 });
 
 
-app.post('/login', async (req, res) => {
+app.post('/loginforma', async (req, res) => {
     try {
         const { uid, password } = req.body;
         const user = await collectiona.findOne({ uid, password }).lean();
