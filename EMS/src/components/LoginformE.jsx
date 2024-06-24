@@ -152,24 +152,10 @@ function LoginformE() {
     uid: "",
     password: "",
   });
-  const [loginData, setLoginData] = useState([]);
   const navigate = useNavigate();
   localStorage.removeItem("isLoggedIn");
   window.localStorage.removeItem("isLoggedIn");
   axios.defaults.withCredentials = true;
-
-  useEffect(() => {
-    const fetchAllAdmin = async () => {
-      try {
-        const res = await axios.get("https://ems-imagine.onrender.com");
-        setLoginData(res.data);
-        console.log(res);
-      } catch (err) {
-        console.log(err);
-      }
-    };
-    fetchAllAdmin();
-  }, []);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
