@@ -125,57 +125,34 @@
 // export default LoginformA;
 
 
-
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import "../styles/Login.css";
 
-function LoginformA() { 
+function LoginformA() {
   const [lformData, setFormData] = useState({
     uid: "",
     password: "",
   });
-  const [loginData, setLoginData] = useState([]);
   const navigate = useNavigate();
-  localStorage.removeItem("isLoggedIn");
-  window.localStorage.removeItem("isLoggedIn");
-  axios.defaults.withCredentials = true;
 
-  useEffect(() => {
-    const fetchAllAdmin = async () => {
-      try {
-        const res = await axios.get("https://ems-imagine.onrender.com/");
-        setLoginData(res.data);
-        console.log(res);
-      } catch (err) {
-        console.log(err);
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const res = await axios.post("https://ems-imagine.onrender.com/login", lformData);
+      if (res.data.status === 'success') {
+        window.localStorage.setItem("isLoggedIn", true);
+        window.localStorage.setItem("uid", lformData.uid);
+        navigate("/homea");
       }
-    };
-    fetchAllAdmin();
-  }, []);
-
-  const validate = (lformData, loginData) => {
-    if (!lformData.uid) {
-      alert("User ID is required");
-      return;
+    } catch (err) {
+      if (err.response && err.response.data.message) {
+        alert(err.response.data.message);
+      } else {
+        alert("An error occurred. Please try again.");
+      }
     }
-    const user = loginData.find((user) => user.uid === lformData.uid);
-    if (!user) {
-      alert("Invalid User ID");
-      return;
-    }
-    if (!lformData.password) {
-      alert("Password is required");
-      return;
-    }
-    if (lformData.password !== user.password) {
-      alert("Wrong Password");
-      return;
-    }
-    window.localStorage.setItem("isLoggedIn", true);
-    window.localStorage.setItem("uid", lformData.uid);
-    navigate("/homea");
   };
 
   return (
@@ -189,12 +166,7 @@ function LoginformA() {
       </div>
       <div className="d-flex justify-content-center align-items-center vh-100 loginPage">
         <div className="p-3 rounded border loginForm">
-          <form
-            onSubmit={(e) => {
-              e.preventDefault();
-              validate(lformData, loginData);
-            }}
-          >
+          <form onSubmit={handleSubmit}>
             <h2 className="center-align text-white">ADMIN</h2>
             <div className="mb-3">
               <label htmlFor="uid">
@@ -251,4 +223,5 @@ function LoginformA() {
 }
 
 export default LoginformA;
+
 
