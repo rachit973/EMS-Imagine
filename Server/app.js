@@ -39,10 +39,7 @@ app.get("/login", (req,res) => {
     res.status(200).json({message: "Login Page"});
 });
 
-app.post("/login", (req, res) => {
-    const { role } = req.body;
-    res.status(200).json({ message: "Logged in as ${role}" });
-});
+
 
 app.post('/login', async (req, res) => {
     try {
