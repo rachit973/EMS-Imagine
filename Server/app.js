@@ -73,6 +73,16 @@ app.post('/loginforme', async (req, res) => {
     }
 });
 
+app.get("/employees", async (req, res) => {
+    try {
+        const data = await collectiona.find({}, 'uid password').lean();
+        res.json(data);
+    } catch (err) {
+        res.status(500).json(err);
+    }
+});
+
+
 
 app.get("/admins", async (req, res) => {
     try {
