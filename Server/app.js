@@ -44,6 +44,20 @@ app.post("/login", (req, res) => {
     res.status(200).json({ message: "Logged in as ${role}" });
 });
 
+app.post('/login', async (req, res) => {
+    try {
+        const { uid, password } = req.body;
+        const user = await collectiona.findOne({ uid, password }).lean();
+        if (user) {
+            res.json({ status: 'success', message: 'Login successful' });
+        } else {
+            res.status(401).json({ status: 'error', message: 'Invalid UID or password' });
+        }
+    } catch (err) {
+        res.status(500).json(err);
+    }
+});
+
 
 app.get("/admins", async (req, res) => {
     try {
