@@ -44,7 +44,7 @@ const LeaveE = () => {
     e.preventDefault();
     try {
       const response = await axios.post(
-        "http://localhost:8001/submit-leave",
+        "https://ems-imagine.onrender.com/submit-leave",
         formData
       );
       alert("Form submitted successfully");
