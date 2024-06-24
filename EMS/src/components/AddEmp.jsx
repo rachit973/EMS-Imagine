@@ -29,7 +29,7 @@ const AddEmp = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    axios.post("http://localhost:8001/addempa", formData)
+    axios.post("https://ems-imagine.onrender.com/addempa", formData)
       .then(response => {
         console.log(response.data);
         alert("Employee added successfully");
