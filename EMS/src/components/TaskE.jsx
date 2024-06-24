@@ -13,7 +13,7 @@ const TaskE = () => {
   useEffect(() => {
     const fetchTasks = async () => {
       try {
-        const response = await axios.get(`http://localhost:8001/tasks/${uid}`);
+        const response = await axios.get(`https://ems-imagine.onrender.com/tasks/${uid}`);
         setTasks(response.data.tasks); // Assuming the response has a 'tasks' field containing an array of tasks
       } catch (err) {
         setError("Error fetching tasks");
@@ -28,7 +28,7 @@ const TaskE = () => {
 
   const handleStatusChange = async (taskId) => {
     try {
-      await axios.post(`http://localhost:8001/tasks/${taskId}/status`, { status: "Done" });
+      await axios.post(`https://ems-imagine.onrender.com/tasks/${taskId}/status`, { status: "Done" });
       setTasks((prevTasks) =>
         prevTasks.map((task) =>
           task._id === taskId ? { ...task, status: "Done" } : task
