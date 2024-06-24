@@ -57,7 +57,7 @@ const AttendanceA = () => {
       // Update existing attendance
       try {
         setLoading(true);
-        await axios.put(`http://localhost:8001/attendance/${selectedYear}/${selectedMonth}/${selectedDate}`, attendanceData);
+        await axios.put(`https://ems-imagine.onrender.com/attendance/${selectedYear}/${selectedMonth}/${selectedDate}`, attendanceData);
         alert(`Attendance updated successfully for ${selectedDay}, ${selectedDate}-${selectedMonth}-${selectedYear}`);
         navigate("/homea/manageempa");
       } catch (error) {
@@ -69,7 +69,7 @@ const AttendanceA = () => {
       // Check if attendance already exists for the selected date
       try {
         setLoading(true);
-        const res = await axios.get(`http://localhost:8001/attendance/${selectedYear}/${selectedMonth}/${selectedDate}`);
+        const res = await axios.get(`https://ems-imagine.onrender.com/attendance/${selectedYear}/${selectedMonth}/${selectedDate}`);
         if (res.data.length > 0) {
           alert(`Attendance for ${selectedDay}, ${selectedDate}-${selectedMonth}-${selectedYear} already exists.`);
           setLoading(false);
@@ -82,7 +82,7 @@ const AttendanceA = () => {
       }
 
       // Submit new attendance
-      axios.post("http://localhost:8001/attendance", attendanceData)
+      axios.post("https://ems-imagine.onrender.com/attendance", attendanceData)
         .then(response => {
           console.log(response.data);
           alert(`Attendance recorded successfully for ${selectedDay}, ${selectedDate}-${selectedMonth}-${selectedYear}`);
@@ -101,7 +101,7 @@ const AttendanceA = () => {
     // Fetch existing attendance for the selected date
     try {
       setLoading(true);
-      const res = await axios.get(`http://localhost:8001/attendance/${selectedYear}/${selectedMonth}/${selectedDate}`);
+      const res = await axios.get(`https://ems-imagine.onrender.com/attendance/${selectedYear}/${selectedMonth}/${selectedDate}`);
       if (res.data.length > 0) {
         const existingAttendance = res.data[0].data;
         setAttendance(existingAttendance);
