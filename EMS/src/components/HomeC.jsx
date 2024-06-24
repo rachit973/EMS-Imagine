@@ -18,7 +18,7 @@ function HomeC() {
   }, []);
 
   const handleLogout = () => {
-    axios.get("https://ems-imagine.onrender.com/logout").then((result) => {
+    axios.get("https://ems-imagine.onrender.com").then((result) => {
       if (result.data.Status) {
         localStorage.removeItem("isLoggedIn");
         localStorage.removeItem("uid");
