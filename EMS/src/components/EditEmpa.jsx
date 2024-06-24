@@ -11,7 +11,7 @@ function EditEmpa() {
   useEffect(() => {
     const fetchEmployee = async () => {
       try {
-        const res = await axios.get(`http://localhost:8001/employees/${uid}`);
+        const res = await axios.get(`https://ems-imagine.onrender.com/employees/${uid}`);
         setEmployee(res.data);
       } catch (err) {
         console.log(err);
@@ -26,7 +26,7 @@ function EditEmpa() {
 
   const handleUpdate = async () => {
     try {
-      const res = await axios.put(`http://localhost:8001/employees/${uid}`, employee);
+      const res = await axios.put(`https://ems-imagine.onrender.com/employees/${uid}`, employee);
       if (res.status === 200) {
         alert("Employee details updated successfully!");
         navigate("/homea/manageempa");
@@ -43,7 +43,7 @@ function EditEmpa() {
     const confirmDelete = window.confirm("Are you sure you want to delete this employee?");
     if (confirmDelete) {
       try {
-        const res = await axios.delete(`http://localhost:8001/employees/${uid}`);
+        const res = await axios.delete(`https://ems-imagine.onrender.com/employees/${uid}`);
         if (res.status === 200) {
           navigate("/homea/manageempa"); // Redirect to the employees list or home page after deletion
         } else {
