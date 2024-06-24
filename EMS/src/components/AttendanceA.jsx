@@ -14,7 +14,7 @@ const AttendanceA = () => {
   const [isUpdate, setIsUpdate] = useState(false);
 
   useEffect(() => {
-    axios.get("http://localhost:8001/employees")
+    axios.get("https://ems-imagine.onrender.com/employees")
       .then(response => {
         setEmployees(response.data);
       })
