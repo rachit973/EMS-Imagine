@@ -26,7 +26,7 @@ const AttendanceE = () => {
   const fetchAttendanceData = async () => {
     setLoading(true);
     try {
-      const response = await axios.get(`http://localhost:8001/attendance/${selectedYear}/${selectedMonth}/employee/${uid}`);
+      const response = await axios.get(`https://ems-imagine.onrender.com/attendance/${selectedYear}/${selectedMonth}/employee/${uid}`);
       setAttendanceData(response.data);
     } catch (error) {
       console.error("Error fetching monthly attendance:", error);
