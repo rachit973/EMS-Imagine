@@ -15,7 +15,7 @@ const TaskA = () => {
   useEffect(() => {
     const fetchEmployees = async () => {
       try {
-        const response = await axios.get("http://localhost:8001/employees");
+        const response = await axios.get("https://ems-imagine.onrender.com/employees");
         setEmployees(response.data);
       } catch (error) {
         console.error("Error fetching employees:", error);
