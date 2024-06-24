@@ -15,7 +15,7 @@ function ManageEmpA() {
   useEffect(() => {
     const fetchAllRecord = async () => {
       try {
-        const res = await axios.get("http://localhost:8001/employees");
+        const res = await axios.get("https://ems-imagine.onrender.com/employees");
         setEmployee(res.data);
       } catch (err) {
         console.log(err);
