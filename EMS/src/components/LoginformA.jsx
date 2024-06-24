@@ -140,7 +140,7 @@ function LoginformA() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post("https://ems-imagine.onrender.com/login", lformData);
+      const res = await axios.post("https://ems-imagine.onrender.com/loginforma", lformData);
       if (res.data.status === 'success') {
         window.localStorage.setItem("isLoggedIn", true);
         window.localStorage.setItem("uid", lformData.uid);
