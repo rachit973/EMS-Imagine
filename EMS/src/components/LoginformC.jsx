@@ -27,28 +27,47 @@ function LoginformC() {
     fetchAllAdmin();
   }, []);
 
-  const validate = (lformData, loginData) => {
-    if (!lformData.uid) {
-      alert("User ID is required");
-      return;
+    const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const res = await axios.post("https://ems-imagine.onrender.com/loginformc", lformData);
+      if (res.data.status === 'success') {
+        window.localStorage.setItem("isLoggedIn", true);
+        window.localStorage.setItem("uid", lformData.uid);
+        navigate("/homee");
+      } else {
+        alert(res.data.message);
+      }
+    } catch (err) {
+      if (err.response && err.response.data.message) {
+        alert(err.response.data.message);
+      } else {
+        alert("An error occurred. Please try again.");
+      }
     }
-    const user = loginData.find((user) => user.uid === lformData.uid);
-    if (!user) {
-      alert("Invalid User ID");
-      return;
-    }
-    if (!lformData.password) {
-      alert("Password is required");
-      return;
-    }
-    if (lformData.password !== user.password) {
-      alert("Wrong Password");
-      return;
-    }
-    window.localStorage.setItem("isLoggedIn", true);
-    window.localStorage.setItem("uid", lformData.uid);
-    navigate("/homec");
   };
+  // const validate = (lformData, loginData) => {
+  //   if (!lformData.uid) {
+  //     alert("User ID is required");
+  //     return;
+  //   }
+  //   const user = loginData.find((user) => user.uid === lformData.uid);
+  //   if (!user) {
+  //     alert("Invalid User ID");
+  //     return;
+  //   }
+  //   if (!lformData.password) {
+  //     alert("Password is required");
+  //     return;
+  //   }
+  //   if (lformData.password !== user.password) {
+  //     alert("Wrong Password");
+  //     return;
+  //   }
+  //   window.localStorage.setItem("isLoggedIn", true);
+  //   window.localStorage.setItem("uid", lformData.uid);
+  //   navigate("/homec");
+  // };
 
   return (
     <>
