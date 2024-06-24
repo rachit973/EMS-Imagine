@@ -23,7 +23,7 @@ function LeaveApplicationE() {
     const confirmDelete = window.confirm("Are you sure you want to delete this leave application?");
     if (confirmDelete) {
     try {
-      await axios.delete(`http://localhost:8001/leaves/${id}`);
+      await axios.delete(`https://ems-imagine.onrender.com/leaves/${id}`);
       // Update the state to remove the deleted leave application
       setLeaves(leaves.filter(leave => leave._id !== id));
     } catch (error) {
