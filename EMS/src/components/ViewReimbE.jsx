@@ -9,7 +9,7 @@ function ViewReimbE() {
   useEffect(() => {
     const fetchReimbursements = async () => {
       try {
-        const response = await axios.get(`http://localhost:8001/reimbursement/${uid}`);
+        const response = await axios.get(`https://ems-imagine.onrender.com/reimbursement/${uid}`);
         setReimbursements(response.data);
       } catch (error) {
         console.error("Error fetching reimbursements:", error);
@@ -25,7 +25,7 @@ function ViewReimbE() {
     const confirmDelete = window.confirm("Are you sure you want to delete this reimbursement application?");
     if (confirmDelete) {
       try {
-        const response = await axios.delete(`http://localhost:8001/reimbursement/${id}`);
+        const response = await axios.delete(`https://ems-imagine.onrender.com/reimbursement/${id}`);
         setReimbursements(reimbursements.filter((reimbursement) => reimbursement._id !== id));
       } catch (error) {
         console.error("Error deleting reimbursement:", error);
