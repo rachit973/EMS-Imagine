@@ -14,7 +14,7 @@ const ReimbursementA = () => {
   useEffect(() => {
     const fetchReimbursements = async () => {
       try {
-        const response = await axios.get("http://localhost:8001/reimbursements");
+        const response = await axios.get("https://ems-imagine.onrender.com/reimbursements");
         setReimbursements(response.data);
         setLoading(false);
       } catch (error) {
