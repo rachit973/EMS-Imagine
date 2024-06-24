@@ -17,7 +17,7 @@ function LoginformC() {
   useEffect(() => {
     const fetchAllAdmin = async () => {
       try {
-        const res = await axios.get("http://localhost:8001/clients");
+        const res = await axios.get("https://ems-imagine.onrender.com/clients");
         setLoginData(res.data);
         console.log(res);
       } catch (err) {
@@ -34,7 +34,7 @@ function LoginformC() {
       if (res.data.status === 'success') {
         window.localStorage.setItem("isLoggedIn", true);
         window.localStorage.setItem("uid", lformData.uid);
-        navigate("/homee");
+        navigate("/homec");
       } else {
         alert(res.data.message);
       }
