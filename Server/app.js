@@ -62,7 +62,7 @@ app.post('/loginforma', async (req, res) => {
 app.post('/loginforme', async (req, res) => {
     try {
         const { uid, password } = req.body;
-        const user = await collectiona.findOne({ uid, password }).lean();
+        const user = await collectione.findOne({ uid, password }).lean();
         if (user) {
             res.json({ status: 'success', message: 'Login successful' });
         } else {
