@@ -24,7 +24,7 @@ const AddClientE = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    axios.post("http://localhost:8001/addclient", formData)
+    axios.post("https://ems-imagine.onrender.com/addclient", formData)
       .then(response => {
         console.log(response.data);
         alert("Client added successfully");
