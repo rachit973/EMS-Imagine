@@ -11,7 +11,7 @@ function EditClientA() {
   useEffect(() => {
     const fetchClient = async () => {
       try {
-        const res = await axios.get(`http://localhost:8001/clients/${uid}`);
+        const res = await axios.get(`https://ems-imagine.onrender.com/clients/${uid}`);
         setClient(res.data);
       } catch (err) {
         console.log(err);
@@ -26,7 +26,7 @@ function EditClientA() {
 
   const handleUpdate = async () => {
     try {
-      const res = await axios.put(`http://localhost:8001/clients/${uid}`, client);
+      const res = await axios.put(`https://ems-imagine.onrender.com/clients/${uid}`, client);
       if (res.status === 200) {
         alert("Client details updated successfully!");
         navigate("/homea/manageclienta");
@@ -43,7 +43,7 @@ function EditClientA() {
     const confirmDelete = window.confirm("Are you sure you want to delete this client?");
     if (confirmDelete) {
     try {
-      const res = await axios.delete(`http://localhost:8001/clients/${uid}`);
+      const res = await axios.delete(`https://ems-imagine.onrender.com/clients/${uid}`);
       if (res.status === 200) {
         navigate("/homea/manageclienta");
       } else {
