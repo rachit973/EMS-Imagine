@@ -209,53 +209,53 @@ app.get("/employees", async (req, res) => {
   });
   
 
-app.post("/loginforma", async (req, res) => {
-    const { uid, password } = req.body;
+// app.post("/loginforma", async (req, res) => {
+//     const { uid, password } = req.body;
 
-    try {
-        const check = await collectiona.findOne({ uid: uid });
+//     try {
+//         const check = await collectiona.findOne({ uid: uid });
 
-        if (check) {
-            res.json("exist");
-        } else {
-            res.json("notexist");
-        }
-    } catch (e) {
-        res.json("notexist");
-    }
-});
+//         if (check) {
+//             res.json("exist");
+//         } else {
+//             res.json("notexist");
+//         }
+//     } catch (e) {
+//         res.json("notexist");
+//     }
+// });
 
-app.post("/loginformc", async (req, res) => {
-  const { uid, password } = req.body;
+// app.post("/loginformc", async (req, res) => {
+//   const { uid, password } = req.body;
 
-  try {
-      const check = await collectionc.findOne({ uid: uid });
+//   try {
+//       const check = await collectionc.findOne({ uid: uid });
 
-      if (check) {
-          res.json("exist");
-      } else {
-          res.json("notexist");
-      }
-  } catch (e) {
-      res.json("notexist");
-  }
-});
+//       if (check) {
+//           res.json("exist");
+//       } else {
+//           res.json("notexist");
+//       }
+//   } catch (e) {
+//       res.json("notexist");
+//   }
+// });
 
-app.post("/loginforme", async (req, res) => {
-  const { uid, password } = req.body;
+// app.post("/loginforme", async (req, res) => {
+//   const { uid, password } = req.body;
 
-  try {
-      const check = await collectione.findOne({ uid: uid });
+//   try {
+//       const check = await collectione.findOne({ uid: uid });
 
-      if (check) {
-          res.json("exist");
-      } else {
-          res.json("notexist");
-      }
-  } catch (e) {
-      res.json("notexist");
-  }
-});
+//       if (check) {
+//           res.json("exist");
+//       } else {
+//           res.json("notexist");
+//       }
+//   } catch (e) {
+//       res.json("notexist");
+//   }
+// });
 
 app.post("/addempa", async (req, res) => {
     const { uid, password, name, phone, email, department, dob, joiningDate, salary, address } = req.body;
