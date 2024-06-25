@@ -17,7 +17,7 @@ function ProfileC() {
   useEffect(() => {
     const fetchAllRecord = async () => {
       try {
-        const res = await axios.get("http://localhost:8001/clients");
+        const res = await axios.get("https://ems-imagine.onrender.com/clients");
         setLoginData(res.data);
       } catch (err) {
         console.log(err);
