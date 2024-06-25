@@ -14,7 +14,7 @@ function ManageClientA() {
 
     // Fetch clients from the backend
     axios
-      .get("http://localhost:8001/clients")
+      .get("https://ems-imagine.onrender.com/clients")
       .then((response) => {
         setClients(response.data);
       })
