@@ -93,47 +93,47 @@ app.post("/loginforme", async (req, res) => {
   }
 });
 
-// app.post('/loginforma', async (req, res) => {
-//     try {
-//         const { uid, password } = req.body;
-//         const user = await collectiona.findOne({ uid, password }).lean();
-//         if (user) {
-//             res.json({ status: 'success', message: 'Login successful' });
-//         } else {
-//             res.status(401).json({ status: 'error', message: 'Invalid UID or password' });
-//         }
-//     } catch (err) {
-//         res.status(500).json(err);
-//     }
-// });
+app.post('/loginforma', async (req, res) => {
+    try {
+        const { uid, password } = req.body;
+        const user = await collectiona.findOne({ uid, password }).lean();
+        if (user) {
+            res.json({ status: 'success', message: 'Login successful' });
+        } else {
+            res.status(401).json({ status: 'error', message: 'Invalid UID or password' });
+        }
+    } catch (err) {
+        res.status(500).json(err);
+    }
+});
 
-// app.post('/loginforme', async (req, res) => {
-//     try {
-//         const { uid, password } = req.body;
-//         const user = await collectione.findOne({ uid, password }).lean();
-//         if (user) {
-//             res.json({ status: 'success', message: 'Login successful' });
-//         } else {
-//             res.status(401).json({ status: 'error', message: 'Invalid UID or password' });
-//         }
-//     } catch (err) {
-//         res.status(500).json(err);
-//     }
-// });
+app.post('/loginforme', async (req, res) => {
+    try {
+        const { uid, password } = req.body;
+        const user = await collectione.findOne({ uid, password }).lean();
+        if (user) {
+            res.json({ status: 'success', message: 'Login successful' });
+        } else {
+            res.status(401).json({ status: 'error', message: 'Invalid UID or password' });
+        }
+    } catch (err) {
+        res.status(500).json(err);
+    }
+});
 
-// app.post('/loginformc', async (req, res) => {
-//     try {
-//         const { uid, password } = req.body;
-//         const user = await collectionc.findOne({ uid, password }).lean();
-//         if (user) {
-//             res.json({ status: 'success', message: 'Login successful' });
-//         } else {
-//             res.status(401).json({ status: 'error', message: 'Invalid UID or password' });
-//         }
-//     } catch (err) {
-//         res.status(500).json(err);
-//     }
-// });
+app.post('/loginformc', async (req, res) => {
+    try {
+        const { uid, password } = req.body;
+        const user = await collectionc.findOne({ uid, password }).lean();
+        if (user) {
+            res.json({ status: 'success', message: 'Login successful' });
+        } else {
+            res.status(401).json({ status: 'error', message: 'Invalid UID or password' });
+        }
+    } catch (err) {
+        res.status(500).json(err);
+    }
+});
 
 
 
